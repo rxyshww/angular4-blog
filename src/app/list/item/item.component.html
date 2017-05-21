@@ -1,0 +1,25 @@
+<li class="article-item">
+  <div class="item-sub clearfix">
+    <div class="col-xs-3 article-logo-wrap">
+        <img [src]="itemData?.imgUrl" alt="" class="article-logo">
+    </div>
+    <div class="col-xs-9 article-desc">
+      <div class="article-title-wrap">
+        <a class="article-title" href="javascript:void(0);" [routerLink]="['/blog/list/article', itemData?._id]">{{itemData?.title}}</a>
+      </div>
+      <div class="article-body">{{itemData?.contentDesc}}</div>
+    </div>
+  </div>
+
+
+    <div class="others clearfix">
+        <div class="author-wrap pull-left">
+            <span>翔哥</span><span>来自：{{itemData?.tabsId[0]?.tabName}}</span>
+        </div>
+        <div class="article-other pull-right">
+            <span>{{itemData?.created | date:'y-MM-dd HH:mm:ss'}}</span>
+            <span>阅读：({{itemData?.visitCount}})</span>
+            <span>评论：({{itemData?.commentCount}})</span>
+        </div>
+    </div>
+</li>

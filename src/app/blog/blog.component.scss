@@ -1,0 +1,12 @@
+.container{
+    margin-top: 80px;
+}
+.banner-body-right {
+    padding-bottom: 100px;
+}
+
+@media (max-width: 768px){
+    .banner-body-left, .banner-body-right{
+        width: 100%;
+    }
+}

@@ -1,0 +1,21 @@
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <a class="title-logo" [routerLink]="['/blog']">IT翔</a>
+    <ul class="nav navbar-nav">
+        <li><a href="javascript:void(0);" [routerLink]="['/blog/list']">阅读</a></li>
+        <li><a href="javascript:void(0);" [routerLink]="['/article']">写作</a></li>
+        <li>
+            <div class="navbar-form">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Search for...">
+                    <span class="input-group-btn">
+                        <button class="btn btn-default glyphicon glyphicon-search" type="button"></button>
+                    </span>
+                </div>
+            </div>
+        </li>
+        <li><a href="javascript:void(0);" [routerLink]="['/loginCtrl']">登陆</a></li>
+        <li><a href="javascript:void(0);" [routerLink]="['/loginCtrl']">注册</a></li>
+    </ul>
+  </div>
+</nav>

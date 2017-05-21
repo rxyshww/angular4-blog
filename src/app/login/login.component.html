@@ -1,0 +1,95 @@
+<div class="login-title">
+</div>
+
+<div class="container login">
+    <div class="form row" [hidden]="!isShowLogin">
+        <form name="loginForm" (ngSubmit)="submitLogin()"
+         class="form-horizontal col-sm-offset-3 col-md-offset-3">
+            <h3 class="form-title">翔神的个人空间</h3>
+            <div class="col-sm-9 col-md-9">
+                <div class="form-group">
+                    <i class="fa fa-user fa-lg"></i>
+                    <input class="form-control required"
+                    [(ngModel)]="loginData.username"
+                    name="username"
+                     type="text" placeholder="Username" autofocus="autofocus" maxlength="20" required/>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-lock fa-lg"></i>
+                    <input class="form-control"
+                    [(ngModel)]="loginData.password"
+                    name="password"
+                     type="password" placeholder="Password" maxlength="8"/>
+                </div>
+                <div class="form-group">
+                    <div ng-show="error" class="text-danger">{{loginError}}</div>
+                </div>
+                <div class="form-group">
+                   <!-- <label class="checkbox">
+                        <input type="checkbox" name="remember" value="1"/> Remember me
+                    </label>-->
+                    <hr />
+                    <a href="javascript:;" class="" (click)="isShowLogin=false">Create an account</a>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success pull-right" value="Login "/>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <div class="form form2 row" [hidden]="isShowLogin">
+        <form name="loginForm" (ngSubmit)="submitRegister()"
+        class="form-horizontal col-sm-offset-3 col-md-offset-3">
+            <h3 class="form-title">注册</h3>
+            <div class="col-sm-9 col-md-9">
+                <div class="form-group">
+                    <i class="fa fa-user fa-lg"></i>
+                    <input class="form-control"
+                    [(ngModel)]="registerData.username"
+                    name="username"
+                     type="text" placeholder="Username" autofocus="autofocus" maxlength="20" required/>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-lock fa-lg"></i>
+                    <input class="form-control"
+                    [(ngModel)]="registerData.password"
+                    name="password"
+                     type="password" placeholder="Password" maxlength="20" required/>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-user fa-lg"></i>
+                    <input class="form-control"
+                    [(ngModel)]="registerData.passwordRepeat"
+                    name="passwordRepeat"
+                     type="password" placeholder="Password again" autofocus="autofocus" maxlength="20" required/>
+                </div>
+                <div class="form-group">
+                    <i class="fa fa-user fa-lg"></i>
+                    <input class="form-control"
+                    [(ngModel)]="registerData.email"
+                    name="email"
+                    type="email" placeholder="email" autofocus="autofocus" maxlength="20" required/>
+                </div>
+                <div class="form-group">
+                    <div ng-show="error" class="text-danger">{{registerError}}</div>
+                </div>
+                <div class="form-group">
+                     <!--<label class="checkbox">
+                         <input type="checkbox" name="remember" value="1"/> Remember me
+                     </label>-->
+                    <hr />
+                    <div>had an account? <a href="javascript:;" class="" (click)="isShowLogin=true">login</a></div>
+                </div>
+                <div class="form-group">
+                    <input type="submit" class="btn btn-success pull-right" value="Sign up"/>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<div class="login-footer">
+    Copyright © 2014-2016， Content By 昨天丶翔你. All Rights Reserved.
+</div>

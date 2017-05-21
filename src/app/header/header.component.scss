@@ -1,0 +1,24 @@
+.navbar-static-top{
+    .title-logo{
+        color: #b0b0b2;
+        margin-left: 15px;
+        font-size: 30px;
+        text-decoration: none;
+        float: left;
+        line-height: 50px;
+    }
+    .navbar-nav{
+        float: right;
+        .navbar-form{
+            margin-right: 0;
+        }
+    }
+    .glyphicon-search{
+        margin-top: -1px;
+    }
+}
+@media(max-width: 768px) {
+    .title-logo{
+        display: none;
+    }
+}

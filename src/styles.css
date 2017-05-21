@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+.clearFix:before,
+.clearFix:after {
+  content: " "; /* 1 */
+  display: table; /* 2 */
+}
+
+.clearFix:after {
+  clear: both;
+}

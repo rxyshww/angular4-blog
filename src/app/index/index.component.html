@@ -1,0 +1,48 @@
+<div class="index-wrap">
+    <div class="motto">
+        <div class="module-title text-primary">
+            <span>一言</span>
+        </div>
+        <div class="motto-sub">
+            <div class="motto-desc">
+                <div class="motto-desc-item">要是有所得罪请原谅, 本出自一番好意,</div>
+                <div class="motto-desc-item">只是想显点粗浅技艺, 那才是我的初衷。</div>
+            </div>
+            <div class="motto-author">—— 莎士比亚</div>
+        </div>
+    </div>
+    <div class="new-text">
+        <div class="module-title text-primary">
+            <span>最新文字</span>
+            <a href="javascript:void(0)" class="article-more" [routerLink]="['/blog/list']">更多推荐></a>
+        </div>
+        <div class="article-wrap">
+            <div class="article-title">
+                <a href="javascript:void(0)" [routerLink]="['/blog/list/article', newArticle?._id]">{{newArticle?.title}}</a>
+            </div>
+            <div class="article-body">{{newArticle?.contentDesc}}</div>
+        </div>
+    </div>
+    <div class="article-recommend">
+        <div class="module-title text-primary">
+            <span>文章推荐</span>
+            <a href="javascript:void(0)" class="article-more" [routerLink]="['/blog/list']">更多推荐></a>
+        </div>
+        <div>
+            <div class="msg-text-bottom">
+					<div class="col-md-4 msg-text-bottom-left" *ngFor="let item of recommendArticle">
+						<figure class="effect-winston">
+							<a href="javascript:void(0);" [routerLink]="['/blog/list/article', item?._id]"><img [src]="item.imgUrl" alt=" " class="img-responsive" />
+							<figcaption>
+
+							</figcaption>
+							</a>
+						</figure>
+						<h3><a href="javascript:void(0);" [routerLink]="['/blog/list/article', item?._id]">{{item?.title}}</a></h3>
+						<p>来源：<span>javascript</span></p>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+        </div>
+    </div>
+</div>

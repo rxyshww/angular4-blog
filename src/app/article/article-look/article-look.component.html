@@ -1,0 +1,12 @@
+<div class="article-container">
+    <h1 class="title">{{articleData?.title}}</h1>
+    <div class="counts">
+        <span class="come-from">来自: {{articleData?.tabsId[0].tabName}}</span>
+        <span class="views-count">阅读{{articleData?.visitCount}}</span>
+        <span class="comments-count">评论{{articleData?.commentCount}}</span>
+        <span class="create-time">{{articleData?.created | date:"y-MM-dd HH:mm:ss"}}</span>
+    </div>
+    <div class="markdown-content" [innerHTML]="articleData?.content">
+
+    </div>
+</div>
