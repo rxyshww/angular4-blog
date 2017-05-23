@@ -17,6 +17,7 @@ export class ArticleService {
     addArticleUrl = `${this.baseUrl}articleData/addArticle`;
     getArticleUrl = `${this.baseUrl}articleData/getArticle`;
     getArticleDetailUrl = `${this.baseUrl}articleData/getArticleById`;
+    editArticleDetailUrl = `${this.baseUrl}articleData/editArticle`;
     getIndexUrl = `${this.baseUrl}indexData/getIndex`;
 
     constructor(
@@ -33,14 +34,14 @@ export class ArticleService {
             .map((res: Response) => res.json())
     }
 
-    getArticleDetail(id:any): Observable<any> {
-        console.log(id)
-        return this.http.get(this.getArticleDetailUrl + `?_id=${id}`)
+    getArticleDetail(id:any, edit?): Observable<any> {
+
+        return this.http.get(this.getArticleDetailUrl + `?_id=${id}${edit ? '&edit=' + edit : ''}`)
             .map((res: Response) => res.json())
     }
 
-    editArticleDetail(id:any): Observable<any> {
-        return this.http.get(this.getArticleDetailUrl + `?_id=${id}&edit=1`)
+    editArticleDetail(body:any): Observable<any> {
+        return this.http.post(this.editArticleDetailUrl, body)
             .map((res: Response) => res.json())
     }
 

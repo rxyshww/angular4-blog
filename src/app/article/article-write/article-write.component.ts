@@ -18,6 +18,8 @@ export class ArticleWriteComponent implements OnInit{
     articleData:article = new article();
     articleTabs;
     tabId;
+    articleId;
+    edit: boolean = false;
 
     //上传图片设置
     options: NgUploaderOptions;
@@ -60,16 +62,19 @@ export class ArticleWriteComponent implements OnInit{
         this.activatedRoute.params.subscribe(
             params => {
                 const id = params["id"];
+                this.articleId = id;
                 if (id) {
-                    this.articleService.editArticleDetail(id).subscribe(
+                    this.edit = true;
+                    this.articleService.getArticleDetail(id, 1).subscribe(
                         res => {
                             this.articleData = res;
+                            this.previewData = res.imgUrl;
                         },
                         error => {console.log(error)}
                     )
                 }
             }
-        )
+        );
 
         this.tabService.getTab().subscribe(
             res => this.articleTabs = res,
@@ -83,12 +88,21 @@ export class ArticleWriteComponent implements OnInit{
             this.articleData.imgUrl = this.response.imgUrl;
             this.articleData.tabsId = this.tabId;
         }
-        this.articleService.addArticle(this.articleData).subscribe(
-            res => {
-                this.goBack();
-            },
-            error => {console.log(error)}
-        )
+        if (this.edit) {
+            this.articleService.editArticleDetail(this.articleData).subscribe(
+                res => {
+                    this.goBack();
+                },
+                error => {console.log(error)}
+            )
+        } else {
+            this.articleService.addArticle(this.articleData).subscribe(
+                res => {
+                    this.goBack();
+                },
+                error => {console.log(error)}
+            )
+        }
     }
 
     goBack() {
